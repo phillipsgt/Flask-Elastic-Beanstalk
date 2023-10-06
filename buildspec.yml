@@ -6,7 +6,7 @@ phases:
       python: 3.7
   pre_build:
     commands:
-      - python3.7 -m venv ~/.venv
+      - python3 -m venv ~/.venv
       - source ~/.venv/bin/activate
       - make install
       - make lint
@@ -18,4 +18,5 @@ phases:
 eb_codebuild_settings:
   CodeBuildServiceRole: CodeBuildServiceRole
   ComputeType: BUILD_GENERAL1_SMALL
-  Image: "aws/codebuild/eb-go-1.5-amazonlinux-64:2.1.3"
+  Image: "aws/codebuild/amazonlinux2-aarch64-standard:2.0"
+  Timeout: 40
